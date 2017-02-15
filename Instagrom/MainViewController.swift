@@ -20,7 +20,7 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     //UI
     let imagePicker = UIImagePickerController()
-    
+    @IBOutlet weak var photoImageView: UIImageView!
     
     //新增資料
     @IBAction func addDataTapped(_ sender: Any) {
@@ -50,7 +50,9 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if UIImagePickerController.isSourceTypeAvailable(.camera){ //一開始就先確認是否有camera的功能可以用,沒有就不顯示按鍵
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action) in
                 self.imagePicker.sourceType = .camera
+                self.imagePicker.allowsEditing = true
                 self.present(self.imagePicker, animated: true, completion: nil)
+                
             })
             alertController.addAction(cameraAction)
         }
@@ -59,7 +61,9 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){ //一開始就先確認是否有photoLibrary的功能可以用,沒有就不顯示按鍵
             let photoAlbumAction = UIAlertAction(title: "Photo Album", style: .default, handler: {(action) in
                 self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.allowsEditing = true
                 self.present(self.imagePicker, animated: true, completion: nil)
+                
             })
             alertController.addAction(photoAlbumAction)
         }
@@ -73,6 +77,70 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //顯示UIAlertController
         present(alertController, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //info是dictionary,取key[UIImagePickerControllerOriginalImage]
+        //取得相片image
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        //上傳相片至Firebase步驟
+        //1.將相片先轉成NSData(JPEG檔)
+        let imageData = UIImageJPEGRepresentation(image, 0.8)!
+        //2.建立Metadata:圖檔的檔案類型(看firebase的doc)
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        //3.建立Reference(存檔的位置)
+        let imgRef = FIRStorage.storage().reference().child("photo.jpg")
+        
+        imgRef.put(imageData, metadata: metadata) { (metadata, error) in
+            if let error = error{
+                print("error:\(error)")
+                return
+            }else{
+                print("上傳完照片了！DownloadURL:\(metadata!.downloadURL())")
+            }
+            
+        }
+        
+        photoImageView.image = image //把相片image顯示在photoImageView裡
+        dismiss(animated: true, completion: nil) //記得要自己關掉imagePickerController
+        
+    }
+    //拍照的cancel按鈕可以做事
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        <#code#>
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     @IBAction func logOutTapped(_ sender: Any) {
