@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let user = user{
                 print("-------------目前登入使用者：\(user.email)-------------")
-                self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainView")
+                self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainView") 
             }else{
                 print("-------------Nobody use!-------------")
                 self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LogInView")

@@ -17,6 +17,8 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var messagesRef: FIRDatabaseReference!
     var usersRef: FIRDatabaseReference!
     var chatroomRef: FIRDatabaseReference!
+    var postsRef: FIRDatabaseReference!
+    
     
     //UI
     let imagePicker = UIImagePickerController()
@@ -83,26 +85,45 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //取得相片image
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        //上傳相片至Firebase步驟
+        //上傳相片至Firebase步驟(Firebase->storage)
         //1.將相片先轉成NSData(JPEG檔)
         let imageData = UIImageJPEGRepresentation(image, 0.8)!
         //2.建立Metadata:圖檔的檔案類型(看firebase的doc)
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
         //3.建立Reference(存檔的位置)
-        let imgRef = FIRStorage.storage().reference().child("photo.jpg")
+        let uuid = NSUUID().uuidString //使用uuid作為照片檔名編碼,檔名必須為字串
+        let imageName = "photos/\(uuid).jpg"
+        let imgRef = FIRStorage.storage().reference().child(imageName)
         
         imgRef.put(imageData, metadata: metadata) { (metadata, error) in
             if let error = error{
                 print("error:\(error)")
                 return
             }else{
+                //為每張照片存取細部內容(Firebase->database):authorUID,email,imagePath,imageURL,postDate
+                //確定目前有使用者
+                if let user = FIRAuth.auth()?.currentUser{
+                    let post:[String : Any]  = [
+                        "authorUID":user.uid,
+                        "email":user.email!,
+                        "imagePath":imageName,
+                        //firebase 的 write data只接受 NSString,NSNumber,NSDictionary,NSArray 的類型(URL是NSURL的類型)
+                        "imageURL":metadata!.downloadURL()!.absoluteString,
+                        //*1000轉成毫秒,並且將原本TimeInterval = double 轉成整數 Int
+                        "postDate":Int(NSDate().timeIntervalSince1970 * 1000),
+                        ]
+                    
+                    let postRef = self.postsRef.childByAutoId() //在postsRef下再開一個ref(資料夾),存入每張照片的細微內容
+                    postRef.updateChildValues(post)
+                    
+                }
                 print("上傳完照片了！DownloadURL:\(metadata!.downloadURL())")
             }
             
         }
-        
-        photoImageView.image = image //把相片image顯示在photoImageView裡
+        //把相片image顯示在photoImageView裡
+        photoImageView.image = image
         dismiss(animated: true, completion: nil) //記得要自己關掉imagePickerController
         
     }
@@ -110,35 +131,6 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //        <#code#>
 //    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -153,6 +145,7 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //1-2.建立資料庫的reference
         ref = FIRDatabase.database().reference()
         messagesRef = ref.child("messages")//在ref下開一層新資料夾"messages"
+        postsRef = ref.child("posts")//在ref下開一層新資料夾"posts"
         
         imagePicker.delegate = self
         

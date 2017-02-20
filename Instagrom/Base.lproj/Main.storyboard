@@ -301,7 +301,7 @@
         <!--Main View Controller-->
         <scene sceneID="Xmi-sa-54q">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="4qa-9a-6RI" customClass="MainViewController" customModule="Instagrom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4qa-9a-6RI" customClass="MainViewController" customModule="Instagrom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w7V-Ht-8Qg"/>
                         <viewControllerLayoutGuide type="bottom" id="iBd-wv-zIf"/>
@@ -368,5 +368,60 @@
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="797.45127436281871"/>
         </scene>
+        <!--Instagrom-->
+        <scene sceneID="cZf-7l-ohR">
+            <objects>
+                <tableViewController id="C7M-K3-u6A" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="McA-bI-MT9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ltB-0Z-2Ko">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltB-0Z-2Ko" id="Yp5-vs-dp0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C7M-K3-u6A" id="mXn-Nn-Bht"/>
+                            <outlet property="delegate" destination="C7M-K3-u6A" id="tjQ-fw-4fg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Instagrom" id="eg9-qF-isz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="MpI-WE-Neb"/>
+                        <barButtonItem key="rightBarButtonItem" image="signOut@1x" id="b9W-3f-Vyj">
+                            <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WxX-mY-Nkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815.2" y="797.45127436281871"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ern-uK-qg9">
+            <objects>
+                <navigationController storyboardIdentifier="MainView" automaticallyAdjustsScrollViewInsets="NO" id="bdL-Gm-mP9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xdk-gJ-0sj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C7M-K3-u6A" kind="relationship" relationship="rootViewController" id="20Y-UJ-6lo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wmu-hP-PnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="796.55172413793105"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="signOut@1x" width="24" height="24"/>
+    </resources>
 </document>
