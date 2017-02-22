@@ -14,4 +14,6 @@ target 'Instagrom' do
   'pod update'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI'
+  pod 'SDWebImage'
 end

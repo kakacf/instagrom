@@ -371,19 +371,47 @@
         <!--Instagrom-->
         <scene sceneID="cZf-7l-ohR">
             <objects>
-                <tableViewController id="C7M-K3-u6A" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="McA-bI-MT9">
+                <tableViewController id="C7M-K3-u6A" customClass="PostWallTableViewController" customModule="Instagrom" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="369" sectionHeaderHeight="28" sectionFooterHeight="28" id="McA-bI-MT9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ltB-0Z-2Ko">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="leZ-rq-YlI" customClass="PostWallTableViewCell" customModule="Instagrom" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="369"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltB-0Z-2Ko" id="Yp5-vs-dp0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="leZ-rq-YlI" id="yZx-WL-yGG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="369"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abR-22-3mR">
+                                            <rect key="frame" x="0.0" y="50" width="375" height="375"/>
+                                            <color key="backgroundColor" red="0.99215686270000003" green="0.92549019610000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="abR-22-3mR" secondAttribute="height" multiplier="1:1" id="wF2-rV-Ddp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYY-u7-LP9">
+                                            <rect key="frame" x="8" y="8" width="359" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="abR-22-3mR" firstAttribute="leading" secondItem="yZx-WL-yGG" secondAttribute="leading" id="4cz-PY-4SX"/>
+                                        <constraint firstItem="lYY-u7-LP9" firstAttribute="top" secondItem="yZx-WL-yGG" secondAttribute="top" constant="8" id="CM6-7t-vNG"/>
+                                        <constraint firstItem="lYY-u7-LP9" firstAttribute="leading" secondItem="yZx-WL-yGG" secondAttribute="leading" constant="8" id="E5E-QZ-YTT"/>
+                                        <constraint firstAttribute="trailing" secondItem="lYY-u7-LP9" secondAttribute="trailing" constant="8" id="UOP-F7-gFk"/>
+                                        <constraint firstItem="abR-22-3mR" firstAttribute="top" secondItem="lYY-u7-LP9" secondAttribute="bottom" constant="15" id="Xso-CX-zdS"/>
+                                        <constraint firstAttribute="trailing" secondItem="abR-22-3mR" secondAttribute="trailing" id="kNx-3N-qOc"/>
+                                        <constraint firstAttribute="bottom" secondItem="abR-22-3mR" secondAttribute="bottom" constant="11" id="ng7-E6-usf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="emailLabel" destination="lYY-u7-LP9" id="t2p-aY-bOg"/>
+                                    <outlet property="photoImageView" destination="abR-22-3mR" id="xqC-h0-zZQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
