@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B4BDA58307FFDE41D4DCC06AF80561A2'
-               BlueprintName = 'Pods-Instagrom'
+               BlueprintIdentifier = '04FC042D87E47C88D77F3512B0C51334'
+               BlueprintName = 'SVProgressHUD'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-Instagrom.framework'>
+               BuildableName = 'SVProgressHUD.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

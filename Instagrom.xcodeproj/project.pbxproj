@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225B75A91E5E74E5000B27EE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 225B75A81E5E74E5000B27EE /* icon.png */; };
 		226447771E277D8700C0E042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226447761E277D8700C0E042 /* AppDelegate.swift */; };
 		2264477C1E277D8700C0E042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2264477A1E277D8700C0E042 /* Main.storyboard */; };
 		2264477E1E277D8700C0E042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2264477D1E277D8700C0E042 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225B75A81E5E74E5000B27EE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		226447731E277D8700C0E042 /* Instagrom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226447761E277D8700C0E042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2264477B1E277D8700C0E042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		226447751E277D8700C0E042 /* Instagrom */ = {
 			isa = PBXGroup;
 			children = (
+				225B75A81E5E74E5000B27EE /* icon.png */,
 				229E615D1E2A90790033A75F /* Instagrom.entitlements */,
 				226447761E277D8700C0E042 /* AppDelegate.swift */,
 				2264477A1E277D8700C0E042 /* Main.storyboard */,
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226447811E277D8700C0E042 /* LaunchScreen.storyboard in Resources */,
+				225B75A91E5E74E5000B27EE /* icon.png in Resources */,
 				229E61611E2A93F30033A75F /* GoogleService-Info.plist in Resources */,
 				2264477E1E277D8700C0E042 /* Assets.xcassets in Resources */,
 				2264477C1E277D8700C0E042 /* Main.storyboard in Resources */,

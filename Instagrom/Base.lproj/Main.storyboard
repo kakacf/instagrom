@@ -285,7 +285,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="OCf-6p-dxM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9fG-D8-nrJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9fG-D8-nrJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -384,9 +384,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="369"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abR-22-3mR">
+                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abR-22-3mR">
                                             <rect key="frame" x="0.0" y="50" width="375" height="375"/>
-                                            <color key="backgroundColor" red="0.99215686270000003" green="0.92549019610000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="abR-22-3mR" secondAttribute="height" multiplier="1:1" id="wF2-rV-Ddp"/>
                                             </constraints>
@@ -420,9 +419,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Instagrom" id="eg9-qF-isz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="MpI-WE-Neb"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="MpI-WE-Neb">
+                            <connections>
+                                <action selector="cameraTapped:" destination="C7M-K3-u6A" id="EBT-kj-JHA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="signOut@1x" id="b9W-3f-Vyj">
                             <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="signOutTapped:" destination="C7M-K3-u6A" id="uZl-jz-U0g"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -435,7 +441,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MainView" automaticallyAdjustsScrollViewInsets="NO" id="bdL-Gm-mP9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xdk-gJ-0sj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xdk-gJ-0sj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

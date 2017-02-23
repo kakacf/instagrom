@@ -98,6 +98,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SVProgressHUD (2.1.2)
   - TwitterCore (2.7.0):
     - Fabric
   - TwitterKit (2.7.0):
@@ -111,6 +112,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI
   - SDWebImage
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -133,9 +135,10 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: a47b1672fb1b1057f52202cf2a7cd9a249bf3732
+PODFILE CHECKSUM: c35cb0a05e05fe7070647eef6fdb98747631147f
 
 COCOAPODS: 1.2.0

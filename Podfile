@@ -16,4 +16,5 @@ target 'Instagrom' do
   pod 'Firebase/Storage'
   pod 'FirebaseUI'
   pod 'SDWebImage'
+  pod 'SVProgressHUD'
 end
